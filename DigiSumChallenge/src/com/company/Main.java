@@ -18,12 +18,65 @@ public class Main {
 //        System.out.println(isPerfectNumber(5));
 //        System.out.println(isPerfectNumber(-1));
 
+        numberTwoWords(25);
+        numberTwoWords(5200);
+
     }
 
+    public static int reverse(int number){
+        int reversedNumber = 0;
 
+        while (number != 0){
 
+            reversedNumber = number % 10;
+            number /= 10;
+        }
 
+    }
 
+    public static void numberTwoWords(int number){
+        if (number < 0){
+            System.out.println("invalid Value");
+        }
+
+        while (number != 0){
+            int extractedInt = number % 10;
+
+            switch (extractedInt){
+                case 0 :
+                    System.out.println("Zero");
+                    break;
+                case 1 :
+                    System.out.println("One");
+                    break;
+                case 2:
+                    System.out.println("Two");
+                    break;
+                case 3:
+                    System.out.println("Three");
+                    break;
+                case 4:
+                    System.out.println("Four");
+                    break;
+                case 5:
+                    System.out.println("Five");
+                    break;
+                case 6:
+                    System.out.println("Six");
+                    break;
+                case 7:
+                    System.out.println("Seven");
+                    break;
+                case 8:
+                    System.out.println("Eight");
+                    break;
+                case 9:
+                    System.out.println("Nine");
+                    break;
+            }
+            number /=10;
+        }
+    }
 
     public static boolean isPerfectNumber(int num){
         int runningTotal = 0;
