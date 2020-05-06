@@ -1,5 +1,7 @@
 package com.company;
 
+import java.security.spec.RSAOtherPrimeInfo;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -18,64 +20,103 @@ public class Main {
 //        System.out.println(isPerfectNumber(5));
 //        System.out.println(isPerfectNumber(-1));
 
-        numberTwoWords(25);
-        numberTwoWords(5200);
 
+//        numberToWords(1010);
+        numberToWords(123);
+        numberToWords(10);
+        numberToWords(-12);
+
+    }
+
+    public static int getDigitCount(int number){
+        int digitCount = 0;
+
+        if (number < 0){
+            return - 1;
+
+        } else if (number <= 9){
+            return 1;
+        }
+        while (number != 0){
+            number /= 10;
+            digitCount++;
+        }
+        return digitCount;
     }
 
     public static int reverse(int number){
+
+        int lastDigit = 0;
         int reversedNumber = 0;
 
         while (number != 0){
-
-            reversedNumber = number % 10;
+            lastDigit = number % 10;
+//            multiplies the reverse by 10 so that the ones > tens > hundreds > thousands
+            reversedNumber = (reversedNumber * 10) + lastDigit;
             number /= 10;
+//            reversedNumber *= 10;
+//            reversedNumber += number %10;
+//            number /= 10;
         }
-
+        return reversedNumber;
     }
 
-    public static void numberTwoWords(int number){
-        if (number < 0){
-            System.out.println("invalid Value");
-        }
+    public static void numberToWords(int number){
+        int digitCount = getDigitCount(number);
+        int reversedNumber = reverse(number);
+        int extractedInt = 0;
+//        System.out.println("Digit Count " + digitCount);
+//        System.out.println("Reverse Digit Count " + reverseDigitCount);
+//
+//        System.out.println("Number " + number);
+//        System.out.println("Reverse Number " + reversedNumber);
 
-        while (number != 0){
-            int extractedInt = number % 10;
 
-            switch (extractedInt){
-                case 0 :
-                    System.out.println("Zero");
-                    break;
-                case 1 :
-                    System.out.println("One");
-                    break;
-                case 2:
-                    System.out.println("Two");
-                    break;
-                case 3:
-                    System.out.println("Three");
-                    break;
-                case 4:
-                    System.out.println("Four");
-                    break;
-                case 5:
-                    System.out.println("Five");
-                    break;
-                case 6:
-                    System.out.println("Six");
-                    break;
-                case 7:
-                    System.out.println("Seven");
-                    break;
-                case 8:
-                    System.out.println("Eight");
-                    break;
-                case 9:
-                    System.out.println("Nine");
-                    break;
+        if (reversedNumber < 0){
+            System.out.println("Invalid Value");
+        } else {
+            while (digitCount > 0){
+
+                extractedInt = reversedNumber % 10;
+
+                switch (extractedInt){
+                    case 0:
+                        System.out.println("Zero");
+                        break;
+                    case 1:
+                        System.out.println("One");
+                        break;
+                    case 2:
+                        System.out.println("Two");
+                        break;
+                    case 3:
+                        System.out.println("Three");
+                        break;
+                    case 4:
+                        System.out.println("Four");
+                        break;
+                    case 5:
+                        System.out.println("Five");
+                        break;
+                    case 6:
+                        System.out.println("Six");
+                        break;
+                    case 7:
+                        System.out.println("Seven");
+                        break;
+                    case 8:
+                        System.out.println("Eight");
+                        break;
+                    case 9:
+                        System.out.println("Nine");
+                        break;
+                }
+                digitCount--;
+                reversedNumber /= 10;
             }
-            number /=10;
+
         }
+
     }
 
     public static boolean isPerfectNumber(int num){
