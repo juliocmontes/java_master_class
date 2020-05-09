@@ -22,12 +22,41 @@ public class Main {
 
 
 //        numberToWords(1010);
-        numberToWords(123);
-        numberToWords(10);
-        numberToWords(-12);
+//        numberToWords(123);
+//        numberToWords(10);
+//        numberToWords(-12);
+        printFactors(45);
+        getLargestPrime(45);
 
     }
 
+    public static int getLargestPrime(int number){
+        int otherFactors = 0;
+
+        if (number <= 1){
+            return -1;
+        } else
+        {
+         for (int i = 3; i <= number; i++){
+             if (num % i == 0 && )
+         }
+        }
+        return 100;
+    }
+
+
+
+
+    public static boolean canPack(int bigCount, int smallCount, int goal) {
+        int bigSum = bigCount * 5;
+        int totalSum = smallCount + bigSum;
+
+        if (bigCount < 0 || smallCount < 0 || goal < 0){
+            return false;
+        } else {
+            return totalSum >= goal && (smallCount >= (goal % 5));
+        }
+    }
     public static int getDigitCount(int number){
         int digitCount = 0;
 
@@ -43,7 +72,6 @@ public class Main {
         }
         return digitCount;
     }
-
     public static int reverse(int number){
 
         int lastDigit = 0;
@@ -60,7 +88,6 @@ public class Main {
         }
         return reversedNumber;
     }
-
     public static void numberToWords(int number){
         int digitCount = getDigitCount(number);
         int reversedNumber = reverse(number);
@@ -118,7 +145,6 @@ public class Main {
         }
 
     }
-
     public static boolean isPerfectNumber(int num){
         int runningTotal = 0;
 
@@ -138,7 +164,6 @@ public class Main {
         return false;
     }
     public static void printFactors(int num){
-
         if (num < 1){
             System.out.println("Invalid Value");
         }

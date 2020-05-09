@@ -6,10 +6,7 @@ public class Point {
     private int x;
     private int y;
 
-    public Point(){
-
-    }
-
+    public Point(){ }
 
     public Point(int x, int y){
         setX(x);
@@ -32,7 +29,6 @@ public class Point {
     public double distance(Point test){
         return Math.sqrt(((test.getX() - this.x) * (test.getX() - this.x) + (test.getY() - this.y) * (test.getY() - this.y)));
     }
-
 
     public int getX() {
         return x;
