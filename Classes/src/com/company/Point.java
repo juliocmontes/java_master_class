@@ -9,8 +9,8 @@ public class Point {
     public Point(){ }
 
     public Point(int x, int y){
-        setX(x);
-        setY(y);
+        this.x = x;
+        this.y = y;
     }
 
     public double distance(){
